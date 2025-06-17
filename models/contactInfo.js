@@ -6,7 +6,12 @@ module.exports = (sequelize, DataTypes) => {
     Email: DataTypes.STRING,
     Phone: DataTypes.STRING,
     Department: DataTypes.STRING,
-    IsActive: { type: DataTypes.BOOLEAN, defaultValue: true }
+    IsActive: { type: DataTypes.BOOLEAN, defaultValue: true },
+    isPrimary: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    },
   }, {
     tableName: 'ContactInfo', timestamps: false
   });
