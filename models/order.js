@@ -2,9 +2,12 @@ module.exports = (sequelize, DataTypes) => {
   const Order = sequelize.define('Order', {
     OrderID: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     OrderDate: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
-    CustomerName: DataTypes.STRING,
-    CustomerEmail: DataTypes.STRING,
-    ClientID: DataTypes.INTEGER,
+    CustomerName: {type: DataTypes.STRING,
+      allowNull: false},
+    CustomerEmail: {type: DataTypes.STRING,
+      allowNull: false},
+    ClientID: {type: DataTypes.INTEGER,
+      allowNull: false},
     CompanyName: DataTypes.STRING,
     BoothNumber: DataTypes.INTEGER,
     BoothDescription: DataTypes.STRING,
@@ -15,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     OnsiteContactPhoneInternational: DataTypes.STRING,
     TaxExempt: DataTypes.STRING,
     OrderPDF: DataTypes.STRING,
-    IsAccepted: { type: DataTypes.BOOLEAN, defaultValue: false }
+    IsAccepted: { type: DataTypes.BOOLEAN, defaultValue: false, allowNull: false }
   }, {
     tableName: 'Orders', timestamps: false
   });

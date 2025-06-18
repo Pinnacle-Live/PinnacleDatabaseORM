@@ -1,12 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
   const ContactInfo = sequelize.define('ContactInfo', {
     ContactID: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    Name: DataTypes.STRING,
+    Name: {type: DataTypes.STRING,
+      allowNull: false},
     Title: DataTypes.STRING,
     Email: DataTypes.STRING,
     Phone: DataTypes.STRING,
     Department: DataTypes.STRING,
-    IsActive: { type: DataTypes.BOOLEAN, defaultValue: true },
+    IsActive: { type: DataTypes.BOOLEAN, defaultValue: true, allowNull: false },
     isPrimary: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
