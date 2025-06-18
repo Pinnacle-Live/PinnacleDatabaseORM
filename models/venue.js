@@ -1,8 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
   const Venue = sequelize.define('Venue', {
     VenueID: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    Name: DataTypes.STRING,
-    VenueNumber: DataTypes.INTEGER,
+    Name: {type: DataTypes.STRING,
+      allowNull: false},
+    VenueNumber: {type: DataTypes.INTEGER,
+      allowNull: false},
     StreetAddress: DataTypes.STRING,
     City: DataTypes.STRING,
     State: DataTypes.STRING,
@@ -16,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     TechnologyFee: DataTypes.DECIMAL(10, 2),
     Labour: DataTypes.DECIMAL(10, 2),
     OnsiteFee: DataTypes.DECIMAL(10, 2),
-    IsLabourTaxable: { type: DataTypes.BOOLEAN, defaultValue: true },
+    IsLabourTaxable: { type: DataTypes.BOOLEAN, defaultValue: true, allowNull: false },
     OnsiteFeeAdded: DataTypes.INTEGER,
     ContactID: DataTypes.INTEGER,
-    IsActive: { type: DataTypes.BOOLEAN, defaultValue: true }
+    IsActive: { type: DataTypes.BOOLEAN, defaultValue: true, allowNull: false }
   }, {
     tableName: 'Venues', timestamps: false
   });
